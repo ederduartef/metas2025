@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Metas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #343a40;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        input, textarea {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0069d9;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .categoria {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        .prazo {
+            float: right;
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Minhas Metas</h1>
+
+<!-- 📝 Formulário para nova meta -->
+<form method="post" th:action="@{/metas}" th:object="${meta}">
+    <label>Título</label>
+    <input type="text" th:field="*{titulo}" placeholder="Ex: Estudar Spring" required />
+
+    <label>Categoria</label>
+    <input type="text" th:field="*{categoria}" placeholder="Ex: Estudos, Saúde..." />
+
+    <label>Prazo</label>
+    <input type="date" th:field="*{prazo}" />
+
+    <label>Descrição</label>
+    <textarea th:field="*{descricao}" rows="4" placeholder="Descreva sua meta..."></textarea>
+
+    <button type="submit">Adicionar Meta</button>
+</form>
+
+<!-- 📋 Lista de metas -->
+<ul>
+    <li th:each="meta : ${metas}">
+        <strong th:text="${meta.titulo}">[título]</strong>
+        <span class="categoria" th:text="'Categoria: ' + ${meta.categoria}">[categoria]</span>
+        <span class="prazo" th:text="${meta.prazo}">[prazo]</span>
+        <div th:if="${meta.descricao}">
+            <small th:text="${meta.descricao}">[descrição]</small>
+        </div>
+    </li>
+</ul>
+
+</body>
+</html>
