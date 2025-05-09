@@ -50,7 +50,7 @@ Clone o repositório:
 ```
 git clone https://github.com/seu-usuario/metas2025.git
 ```
-- Abra o projeto no IntelliJ IDEA.
+- Abra o projeto no IntelliJ IDEA/sua IDE.
 - Execute a aplicação pela classe `Metas2025Application.java`.
 - Acesse no navegador: `http://localhost:8080/metas`
 
