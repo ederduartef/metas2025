@@ -67,7 +67,7 @@
 
 <h1>Minhas Metas</h1>
 
-<!-- 📝 Formulário para nova meta -->
+<!-- Formulário para nova meta -->
 <form method="post" th:action="@{/metas}" th:object="${meta}">
     <label>Título</label>
     <input type="text" th:field="*{titulo}" placeholder="Ex: Estudar Spring" required />
@@ -84,7 +84,7 @@
     <button type="submit">Adicionar Meta</button>
 </form>
 
-<!-- 📋 Lista de metas -->
+<!-- Lista de metas -->
 <ul>
     <li th:each="meta : ${metas}">
         <strong th:text="${meta.titulo}">[título]</strong>
