@@ -28,14 +28,33 @@ Projeto Spring Boot para criação e gerenciamento de metas pessoais.
 - MySQL rodando
 - IntelliJ ou outra IDE
 
-### Configurar o banco
+##  Configuração do Banco de Dados
 
 Crie um banco no MySQL:
 
 ```sql
 CREATE DATABASE metasdb; 
 ```
-### Estrutura do projeto
+Abra o arquivo `src/main/resources/application.properties` e configure da seguinte forma:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/metasdb
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+##  Rodando o projeto
+
+Clone o repositório:
+```
+git clone https://github.com/seu-usuario/metas2025.git
+```
+- Abra o projeto no IntelliJ IDEA.
+- Execute a aplicação pela classe `Metas2025Application.java`.
+- Acesse no navegador: `http://localhost:8080/metas`
+
+## Estrutura do projeto
 ```
 src
 ├── controllers      → Controladores web (Spring MVC)
